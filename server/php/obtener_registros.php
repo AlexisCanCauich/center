@@ -13,7 +13,7 @@
     }
 
     if(isset($_POST["order"])) {
-        $query .= 'ORDER BY' . $_POST["order"][0]["column"] . '' . $_POST["order"][0]['dir'] . ' '; 
+        $query .= 'ORDER BY ' . $_POST["order"][0]["column"] . '' . $_POST["order"][0]['dir'] . ' '; 
     }else {
         $query.='ORDER BY id DESC ';
     }
@@ -30,11 +30,10 @@
     foreach($resultado as $fila) {
         $imagen = '';
         if($fila["imagen"] != ''){
-            $imagen = '<img src="../img' . $fila["imagen"] . '" class="img-thumbnail" width="50" height="50"';
+            $imagen = '<img src="server/img/' . $fila["imagen"] . '" class="img-thumbnail" width="50" height="35"/>';
         }else {
             $imagen = '';
         }
-
         $sub_array = array();
         $sub_array[] = $fila["id"];
         $sub_array[] = $fila["nombre"];
@@ -43,9 +42,9 @@
         $sub_array[] = $fila["correo"];
         $sub_array[] = $imagen;
         $sub_array[] = $fila["fecha_creacion"];
-        $sub_array[] = '<button type="button" name="editar" id="'.$fila["id"]. '" class="btn btn-warning btn-xs editar"> Ediar </button>';
-        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id"]. '" class="btn btn-delet btn-xs borrar"> Borrar </button>';
-        $datos = $sub_array;
+        $sub_array[] = '<button type="button" name="Editar" id="'.$fila["id"]. '" class="btn btn-warning btn-xs Editar"> Ediar </button>';
+        $sub_array[] = '<button type="button" name="Borrar" id="'.$fila["id"]. '" class="btn btn-danger btn-xs Borrar"> Borrar </button>';
+        $datos[] = $sub_array;
     }
 
     $salida = array(

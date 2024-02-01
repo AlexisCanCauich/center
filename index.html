@@ -39,11 +39,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Telefono</th>
+                        <th>Cliente</th>
+                        <th>Trabajo</th>
+                        <th>Descripcion breve trabajo</th>
                         <th>Correo</th>
-                        <th>Imagen</th>
+                        <th>Imagen (Opcional)</th>
                         <th>Fecha Creacion</th>
                         <th>Editar</th>
                         <th>Borrar</th>
@@ -66,29 +66,31 @@
                     <div class="modal-content">
                         <div class="modal-body">
 
-                            <label for="nombre">Ingrese el nombre</label>
+                            <label for="nombre">Ingrese el nombre del cliente</label>
                             <input type="text" name="nombre" id="nombre" class="form-control">
                             
                             <br/>
 
-                            <label for="apellido">Ingrese el apellido</label>
-                            <input type="text" name="apellido" id="apellido" class="form-control">
+                            <label for="apellido">Trabajo</label>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control">
                             
                             <br/>
 
-                            <label for="telefono">Ingrese el telefono</label>
+                            <label for="telefono">Descripcion breve del trabajo</label>
                             <input type="text" name="telefono" id="telefono" class="form-control">
 
                             <br/>
 
-                            <label for="correo">Ingrese el correo</label>
-                            <input type="email" name="correo" id="correo" class="form-control">
+                            <label for="text">Ingrese el correo del cliente</label>
+                            <input type="text" name="correo" id="correo" class="form-control">
 
                             <br/>
 
-                            <label for="imagen">Ingrese la imagen</label>
+                            <label for="imagen">Ingrese la imagen (opcional)</label>
                             <input type="file" name="imagen_usuario" id="imagen_usuario" class="form-control">
-                            <span id="imagen-subida"></span>
+                            <span id="imagen_subida"></span>
+                            <span id="imagen_usuario_oculta"></span>
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -116,6 +118,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 
-    <script src="js_app/App.js"></script>
+    <script src="js_app/ServerApp.js"></script>
   </body>
 </html>

@@ -13,11 +13,13 @@ if(isset($_POST["id_usuario"])){
         $salida["apellidos"] = $fila["apellidos"];
         $salida["telefono"] = $fila["telefono"];
         $salida["correo"] = $fila["correo"];
+        $salida["fecha_creacion"] = $fila["fecha_creacion"];
         if($fila["imagen"] != "") {
             $salida["imagen_usuario"] = '<img src="server/img/' . $fila["imagen"] . '" class="img-thumbnail" width="50" height="35"/><input type="hidden" name="imagen_usuario_oculta" value="'.$fila["imagen"].'" />';
         }else {
             $salida["imagen_usuario"] = '<input type="hidden" name="imagen_usuario_oculta" value="" />';
         }
+
     }
 
     if ($salida != '') {
@@ -27,8 +29,9 @@ if(isset($_POST["id_usuario"])){
         $telefono = $fila["telefono"];
         $correo = $fila["correo"];
         $imagen = $fila["imagen"];
+        $fecha_creacion = $fila["fecha_creacion"];
     
-        $stmt = $conexion->prepare("INSERT INTO entregas(nombre,apellidos,imagen,telefono,correo)VALUES('$nombre','$apellidos','$imagen','$telefono','$correo')");
+        $stmt = $conexion->prepare("INSERT INTO entregas(nombre,apellidos,imagen,telefono,correo,fecha_creacion)VALUES('$nombre','$apellidos','$imagen','$telefono','$correo','$fecha_creacion')");
         $resultado = $stmt->execute();
     
         if(!empty($resultado)) {

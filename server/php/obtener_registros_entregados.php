@@ -5,7 +5,7 @@
 
     $query = "";
     $salida = array();
-    $query = "SELECT * FROM usuarios ";
+    $query = "SELECT * FROM entregas ";
 
     if(isset($_POST["search"]["value"])) {
         $query .= 'WHERE nombre LIKE "%' . $_POST["search"]["value"] . '%" '; 
@@ -35,24 +35,21 @@
             $imagen = '';
         }
         $sub_array = array();
-        //$sub_array[] = $fila["id"];
-        $sub_array[] = '<a type="button" name="registro_th" id="'.$fila["id"]. '" class="btn btn-xs Registro_th"> '.$fila["id"].' </a>';
+        $sub_array[] = $fila["id"];
         $sub_array[] = $fila["nombre"];
         $sub_array[] = $fila["apellidos"];
         $sub_array[] = $fila["telefono"];
         $sub_array[] = $fila["correo"];
         $sub_array[] = $imagen;
         $sub_array[] = $fila["fecha_creacion"];
-        $sub_array[] = '<button type="button" name="Editar" id="'.$fila["id"]. '" class="btn btn-warning btn-xs Editar"> Ediar </button>';
         $sub_array[] = '<button type="button" name="Borrar" id="'.$fila["id"]. '" class="btn btn-danger btn-xs Borrar"> Borrar </button>';
-        $sub_array[] = '<button type="button" name="Listo" id="'.$fila["id"]. '" class="btn btn-success btn-xs Listo"> Entregado </button>';
         $datos[] = $sub_array;
     }
 
     $salida = array(
         "draw"              => intval($_POST["draw"]),
         "recordsTotal"      => $filtered_rows,
-        "recordsFiltered"   => obtener_todos_registros(),
+        "recordsFiltered"   => obtener_todos_registros_entregados(),
         "data"              => $datos
     );
 

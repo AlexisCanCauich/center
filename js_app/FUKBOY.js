@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    console.log("alexis dddd hokax  ddcanddddddddd cauich");
+    console.log("alexis dddd hokax hshshshhsshsh ddcanddddddddd cauich");
 
     $("#botonCrear").click(function(){
         $("#formulario")[0].reset();
@@ -111,6 +111,44 @@ $(document).ready(function(){
             return false;
         }
     });
-    
+
+    //Funcionalidad de entrega 
+    $(document).on('click', '.Listo', function(){
+        console.log("btn lisyo");
+        var id_usuario = $(this).attr("id");
+
+        if (confirm("Estas seguro de agregar este registro a entregas: " + id_usuario)) {
+            $.ajax({
+                url:"././server/php/entregas.php",
+                method:"POST",
+                data:{id_usuario:id_usuario},
+                success:function(data)
+                {
+                    alert(data);
+                    dataTable.ajax.reload();
+                }
+            })
+        } else {
+            return false;
+        }
+    });
+
+
+    $(document).on('click', '.Registro_th', function() {
+        var id_usuario = $(this).attr("id"); 
+        console.log(id_usuario);
+
+        $.ajax({
+            url:"././server/php/obtener_registro.php",
+            method:"POST",
+            data:{id_usuario:id_usuario},
+            success:function(data)
+            {
+                alert(data);
+                dataTable.ajax.reload();
+            }
+        })
+    })
+
 });
 

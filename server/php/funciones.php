@@ -28,3 +28,12 @@
         $resultado = $stmt->fetchAll();
         return $stmt->rowCount();
     }
+
+    function obtener_todos_registros_entregados(){
+        
+        include('../././conection_app/conexion.php');
+        $stmt = $conexion->prepare("SELECT * FROM entregas");
+        $stmt->execute();
+        $resultado = $stmt->fetchAll();
+        return $stmt->rowCount();
+    }

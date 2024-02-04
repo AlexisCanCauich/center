@@ -1,0 +1,10 @@
+.fondo-title{
+    padding: 20px;
+    background-color: aquamarine;
+}
+
+.fondo-body{
+    margin-top: 10px;
+    background-color: rgb(157, 202, 202);
+    padding: 20px;
+}
